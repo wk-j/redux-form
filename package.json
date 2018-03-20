@@ -1,0 +1,24 @@
+{
+  "name": "reduxform",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node_modules/parcel-bundler/bin/cli.js src/index.html"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/react": "^16.0.40",
+    "@types/react-dom": "^16.0.4",
+    "@types/redux-form": "^7.2.2",
+    "parcel-bundler": "^1.6.2",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-redux": "^5.0.7",
+    "redux": "^3.7.2",
+    "redux-form": "^7.3.0",
+    "typescript": "^2.7.2"
+  }
+}
