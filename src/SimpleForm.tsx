@@ -1,13 +1,22 @@
 import React from "react"
-import { Field, reduxForm } from "redux-form"
+import { Field, InjectedFormProps, reduxForm, SubmitHandler, BaseFieldProps, GenericFieldHTMLAttributes } from "redux-form"
 
-const SimpleForm = props => {
+type Props = InjectedFormProps & {
+    a: string
+    b: string
+}
+
+type TodoKeys = keyof { a: string, b: string }
+const MyField = (props: BaseFieldProps & GenericFieldHTMLAttributes & { name: TodoKeys }) => <Field {...props} />
+
+const SimpleForm = (props: Props) => {
     const { handleSubmit, pristine, reset, submitting } = props
     return (
         <form onSubmit={handleSubmit}>
             <div>
                 <label>First Name</label>
                 <div>
+                    <MyField name="a" component="input" type="text" placeholder="First Name" />
                     <Field name="firstName" component="input" type="text" placeholder="First Name" />
                 </div>
             </div>
@@ -61,12 +70,8 @@ const SimpleForm = props => {
                 </div>
             </div>
             <div>
-                <button type="submit" disabled={pristine || submitting}>
-                    Submit
-        </button>
-                <button type="button" disabled={pristine || submitting} onClick={reset}>
-                    Clear Values
-        </button>
+                <button type="submit" disabled={pristine || submitting}> Submit </button>
+                <button type="button" disabled={pristine || submitting} onClick={reset}> Clear Values </button>
             </div>
         </form>
     )
